@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "tab-clip",
+  "version": "1.0",
+  "description": "Copy the current tab's title and URL in Markdown format to the clipboard using Alt+.",
+  "permissions": [
+    "activeTab",
+    "clipboardWrite",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "copy-markdown": {
+      "suggested_key": {
+        "default": "Alt+Period",
+        "mac": "Alt+Period"
+      },
+      "description": "Copy current tab info in Markdown format"
+    }
+  }
+}
+
